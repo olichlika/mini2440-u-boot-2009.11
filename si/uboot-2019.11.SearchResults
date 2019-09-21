@@ -1,0 +1,2 @@
+---- tbclk not configured Matches (1 in 1 files) ----
+Timer.c (w:\ubuntu_armv4\mini2440_v2\021_my_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):#	error "tbclk not configured"
