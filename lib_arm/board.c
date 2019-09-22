@@ -267,6 +267,15 @@ init_fnc_t *init_sequence[] = {
 
 void start_armboot (void)
 {
+#if defined(CONFIG_MINI2440_LED)
+	unsigned int *pGPBCON = (unsigned int *)0x56000010;	
+	unsigned int *pGPBDAT = (unsigned int *)0x56000014;	
+	*pGPBCON = 0x00015400;	
+	*pGPBDAT = 0x00000000;
+#endif
+	
+	while(1);
+#if 0
 	init_fnc_t **init_fnc_ptr;
 	char *s;
 #if defined(CONFIG_VFD) || defined(CONFIG_LCD)
@@ -440,6 +449,7 @@ extern void davinci_eth_set_mac_addr (const u_int8_t *addr);
 	}
 
 	/* NOTREACHED - no way out of command loop except booting */
+#endif
 }
 
 void hang (void)

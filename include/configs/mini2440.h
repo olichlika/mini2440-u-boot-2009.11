@@ -39,6 +39,8 @@
  */
 #undef CONFIG_SKIP_LOWLEVEL_INIT	/* undef for developing */
 
+#define CONFIG_SKIP_LOWLEVEL_INIT
+#define CONFIG_SKIP_RELOCATE_UBOOT
 /*
  * High Level Configuration Options
  * (easy to change)
@@ -46,6 +48,8 @@
 #define CONFIG_ARM920T		1	/* This is an ARM920T Core	*/
 #define	CONFIG_S3C2440		1	/* in a SAMSUNG S3C2410 SoC     */
 #define CONFIG_MINI2440		1	/* on a friendly-arm SBC-2410X Board  */
+
+#define CONFIG_MINI2440_LED    1
 
 /* input clock of PLL */
 #define CONFIG_SYS_CLK_FREQ	12000000/* the SBC2410X has 12MHz input clock */

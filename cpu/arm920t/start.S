@@ -131,10 +131,10 @@ copyex:
 	bne	copyex
 #endif
 
-#if defined(CONFIG_S3C2400) || defined(CONFIG_S3C2410)
+#if defined(CONFIG_S3C2400) || defined(CONFIG_S3C2410) || defined(CONFIG_S3C2440)
 	/* turn off the watchdog */
 
-# if defined(CONFIG_S3C2400)
+#if defined(CONFIG_S3C2400)
 #  define pWTCON	0x15300000
 #  define INTMSK	0x14400008	/* Interupt-Controller base addresses */
 #  define CLKDIVN	0x14800014	/* clock divisor register */
@@ -143,8 +143,8 @@ copyex:
 #  define INTMSK	0x4A000008	/* Interupt-Controller base addresses */
 #  define INTSUBMSK	0x4A00001C
 #  define CLKDIVN	0x4C000014	/* clock divisor register */
-# endif
-
+#endif
+	/* close watch dog*/
 	ldr	r0, =pWTCON
 	mov	r1, #0x0
 	str	r1, [r0]
@@ -155,17 +155,47 @@ copyex:
 	mov	r1, #0xffffffff
 	ldr	r0, =INTMSK
 	str	r1, [r0]
-# if defined(CONFIG_S3C2410)
+	
+#if defined(CONFIG_S3C2410)
 	ldr	r1, =0x3ff
 	ldr	r0, =INTSUBMSK
 	str	r1, [r0]
-# endif
+#endif
+
+#if defined(CONFIG_S3C2440)
+	ldr	r1, =0x7fff
+	ldr	r0, =INTSUBMSK
+	str	r1, [r0]
+#endif
 
 	/* FCLK:HCLK:PCLK = 1:2:4 */
 	/* default FCLK is 120 MHz ! */
+	/*
 	ldr	r0, =CLKDIVN
 	mov	r1, #3
-	str	r1, [r0]
+	str	r1, [r0]*/
+	
+	//****设置MPLL时钟****
+	//设置LOCKTIME
+	ldr r0, =0x4C000000
+	ldr r1, =0xFFFFFFFF
+	str r1, [r0]
+
+	/*设置CLKDIVN*/
+	ldr r0, =0x4C000014
+	ldr r1, =0x5
+	str r1, [r0]
+
+	/*设置CPU异步模式*/
+	mrc p15,0,r0,c1,c0,0 
+	orr r0,r0,#0xc0000000 /*R1_nF:OR:R1_iA */
+	mcr p15,0,r0,c1,c0,0
+
+	/*设置MPLLCON*/
+	ldr r0, =0x4C000004
+	ldr r1, =(92 << 12) | (1 << 4) | (1<<0)
+	str r1, [r0]
+
 #endif	/* CONFIG_S3C2400 || CONFIG_S3C2410 */
 
 	/*
@@ -214,6 +244,16 @@ clbss_l:str	r2, [r0]		/* clear loop...                    */
 	add	r0, r0, #4
 	cmp	r0, r1
 	ble	clbss_l
+
+#if defined(CONFIG_MINI2440_LED)
+	ldr r0, =0x56000010
+	mov r1, #0x00015400
+	str r1, [r0]
+
+	ldr r0, =0x56000014
+	ldr r1, =0x000001c0 /*LED1 ON*/
+	str r1, [r0]	
+#endif
 
 	ldr	pc, _start_armboot
 
