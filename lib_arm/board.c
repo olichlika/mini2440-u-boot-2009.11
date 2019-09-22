@@ -274,8 +274,8 @@ void start_armboot (void)
 	*pGPBDAT = 0x00000000;
 #endif
 	
-	while(1);
-#if 0
+//	while(1);
+#if 1
 	init_fnc_t **init_fnc_ptr;
 	char *s;
 #if defined(CONFIG_VFD) || defined(CONFIG_LCD)

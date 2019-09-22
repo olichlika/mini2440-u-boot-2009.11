@@ -45,9 +45,16 @@ DECLARE_GLOBAL_DATA_PTR;
 #define M_PDIV	0x4
 #define M_SDIV	0x1
 #elif FCLK_SPEED==1		/* Fout = 202.8MHz */
-#define M_MDIV	0x5c
-#define M_PDIV	0x4
-#define M_SDIV	0x0
+//#define M_MDIV	0x5c
+//#define M_PDIV	0x4
+//#define M_SDIV	0x0
+#if defined(CONFIG_S3C2440)
+/* Fout = 400MHz */
+#define M_MDIV 0x5c
+#define M_PDIV 0x1
+#define M_SDIV 0x1
+#endif
+
 #endif
 
 #define USB_CLOCK 1
@@ -96,8 +103,19 @@ int board_init (void)
 
 	/* set up the I/O ports */
 	gpio->GPACON = 0x007FFFFF;
+	
 	gpio->GPBCON = 0x00044556;
 	gpio->GPBUP = 0x000007FF;
+
+	/* set led */
+	gpio->GPBCON &= ~((3 << 16) | (3 << 14) | (3 << 12) | (3 << 10));
+	gpio->GPBCON |= ((1 << 16) | (1 << 14) | (1 << 12) | (1 << 10));
+
+	/* close beep*/
+	gpio->GPBCON &= ~(3 << 0);
+	gpio->GPBCON |= (1 << 0);
+	gpio->GPBDAT &= ~(1 << 0);
+	
 	gpio->GPCCON = 0xAAAAAAAA;
 	gpio->GPCUP = 0x0000FFFF;
 	gpio->GPDCON = 0xAAAAAAAA;
@@ -108,8 +126,10 @@ int board_init (void)
 	gpio->GPFUP = 0x000000FF;
 	gpio->GPGCON = 0xFF95FF3A;
 	gpio->GPGUP = 0x0000FFFF;
+	
 	gpio->GPHCON = 0x0016FAAA;
 	gpio->GPHUP = 0x000007FF;
+	gpio->GPHUP &= ~((1 << 5) | (1 << 4));//иою╜
 
 	gpio->EXTINT0=0x22222222;
 	gpio->EXTINT1=0x22222222;

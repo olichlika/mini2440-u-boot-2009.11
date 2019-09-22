@@ -1,29 +1,23 @@
----- cpu_init_crit Matches (28 in 15 files) ----
-lowlevel_init.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\ns9750dev):	/* lr and ip (from cpu_init_crit) are still based on 0x0, relocate it to
-platform.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\st\nhk8815):	orr ip, ip, r0	/* adjust return address of cpu_init_crit */
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm1136):	bl  cpu_init_crit
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm1136):cpu_init_crit:
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm1176):cpu_init_crit:
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm720t):	bl	cpu_init_crit
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm720t):cpu_init_crit:
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm720t):#error No cpu_init_crit() defined for current CPU type
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t):	bl	cpu_init_crit
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t):cpu_init_crit:
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm925t):	bl  cpu_init_crit
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm925t):cpu_init_crit:
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm926ejs):	bl	cpu_init_crit
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm926ejs):cpu_init_crit:
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm946es):	bl	cpu_init_crit
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm946es):cpu_init_crit:
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm_cortexa8):	bl	cpu_init_crit
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm_cortexa8):cpu_init_crit:
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm_intcm):	bl	cpu_init_crit
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm_intcm):cpu_init_crit:
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\lh7a40x):	bl	cpu_init_crit
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\lh7a40x):cpu_init_crit:
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\pxa):	bl	cpu_init_crit		/* we do sys-critical inits	    */
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\pxa):cpu_init_crit:
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\s3c44b0):	bl	cpu_init_crit
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\s3c44b0):cpu_init_crit:
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\sa1100):	bl	cpu_init_crit
-start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\sa1100):cpu_init_crit:
+---- s3c24x0_clock_power Matches (22 in 14 files) ----
+Mini2440.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\tekkamanninja\mini2440):	struct s3c24x0_clock_power * const clk_power =
+S3c2400.h (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\include):static inline struct s3c24x0_clock_power *s3c24x0_get_base_clock_power(void)
+S3c2400.h (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\include):	return (struct s3c24x0_clock_power *)S3C24X0_CLOCK_POWER_BASE;
+S3c2410.h (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\include):static inline struct s3c24x0_clock_power *s3c24x0_get_base_clock_power(void)
+S3c2410.h (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\include):	return (struct s3c24x0_clock_power *)S3C24X0_CLOCK_POWER_BASE;
+S3c2410_nand.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\drivers\mtd\nand):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
+S3c2440.h (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\include):static inline struct s3c24x0_clock_power *s3c24x0_get_base_clock_power(void)
+S3c2440.h (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\include):	return (struct s3c24x0_clock_power *)S3C24X0_CLOCK_POWER_BASE;
+S3c24x0.h (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\include):struct s3c24x0_clock_power {
+Sbc2410x.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\sbc2410x):	struct s3c24x0_clock_power * const clk_power =
+Smdk2400.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\samsung\smdk2400):	struct s3c24x0_clock_power * const clk_power =
+Smdk2410.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\samsung\smdk2410):	struct s3c24x0_clock_power * const clk_power =
+Speed.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
+Speed.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
+Speed.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
+Trab.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\trab):	struct s3c24x0_clock_power * const clk_power =
+Usb.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
+Usb.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
+Usb.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
+Usb_ohci.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
+Usb_ohci.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
+Vcma9.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\mpl\vcma9):	struct s3c24x0_clock_power * const clk_power =
