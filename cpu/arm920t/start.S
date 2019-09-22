@@ -203,26 +203,33 @@ copyex:
 	 * not when booting from ram!
 	 */
 #ifndef CONFIG_SKIP_LOWLEVEL_INIT
+	mov sp, #4096
 	bl	cpu_init_crit
 #endif
 
 #ifndef CONFIG_SKIP_RELOCATE_UBOOT
-relocate:				/* relocate U-Boot to RAM	    */
-	adr	r0, _start		/* r0 <- current position of code   */
-	ldr	r1, _TEXT_BASE		/* test if we run from flash or RAM */
-	cmp	r0, r1			/* don't reloc during debug         */
-	beq	stack_setup
+	bl Init_Nand
 
-	ldr	r2, _armboot_start
-	ldr	r3, _bss_start
-	sub	r2, r3, r2		/* r2 <- size of armboot            */
-	add	r2, r0, r2		/* r2 <- source end address         */
-
-copy_loop:
-	ldmia	r0!, {r3-r10}		/* copy from source address [r0]    */
-	stmia	r1!, {r3-r10}		/* copy to   target address [r1]    */
-	cmp	r0, r2			/* until source end addreee [r2]    */
-	ble	copy_loop
+	mov r0, #0 //Nand地址
+	ldr r1, =0x33f80000	//目的地址
+	ldr r2, =(150 * 1024) //复制长度
+	bl Nand_Copy_to_SDRAM 
+//relocate:				/* relocate U-Boot to RAM	    */
+//	adr	r0, _start		/* r0 <- current position of code   */
+//	ldr	r1, _TEXT_BASE		/* test if we run from flash or RAM */
+//	cmp	r0, r1			/* don't reloc during debug         */
+//	beq	stack_setup
+//
+//	ldr	r2, _armboot_start
+//	ldr	r3, _bss_start
+//	sub	r2, r3, r2		/* r2 <- size of armboot            */
+//	add	r2, r0, r2		/* r2 <- source end address         */
+//
+//copy_loop:
+//	ldmia	r0!, {r3-r10}		/* copy from source address [r0]    */
+//	stmia	r1!, {r3-r10}		/* copy to   target address [r1]    */
+//	cmp	r0, r2			/* until source end addreee [r2]    */
+//	ble	copy_loop
 #endif	/* CONFIG_SKIP_RELOCATE_UBOOT */
 
 	/* Set up the stack						    */
@@ -298,7 +305,8 @@ cpu_init_crit:
 	 */
 	mov	ip, lr
 
-	bl	lowlevel_init
+	//bl	lowlevel_init
+	bl Init_SDRAM
 
 	mov	lr, ip
 	mov	pc, lr

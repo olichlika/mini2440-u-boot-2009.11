@@ -40,6 +40,8 @@ SECTIONS
 	.text :
 	{
 		cpu/arm920t/start.o	(.text)
+		board/tekkamanninja/mini2440/sdram.o (.text)
+		board/tekkamanninja/mini2440/nandflash.o (.text)
 		*(.text)
 	}
 

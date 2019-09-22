@@ -39,8 +39,8 @@
  */
 #undef CONFIG_SKIP_LOWLEVEL_INIT	/* undef for developing */
 
-#define CONFIG_SKIP_LOWLEVEL_INIT
-#define CONFIG_SKIP_RELOCATE_UBOOT
+//#define CONFIG_SKIP_LOWLEVEL_INIT
+//#define CONFIG_SKIP_RELOCATE_UBOOT
 /*
  * High Level Configuration Options
  * (easy to change)

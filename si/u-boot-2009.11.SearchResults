@@ -1,1 +1,29 @@
----- CONFIG_SYS_TEXT_BASE Matches (0 in 0 files) ----
+---- cpu_init_crit Matches (28 in 15 files) ----
+lowlevel_init.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\ns9750dev):	/* lr and ip (from cpu_init_crit) are still based on 0x0, relocate it to
+platform.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\st\nhk8815):	orr ip, ip, r0	/* adjust return address of cpu_init_crit */
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm1136):	bl  cpu_init_crit
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm1136):cpu_init_crit:
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm1176):cpu_init_crit:
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm720t):	bl	cpu_init_crit
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm720t):cpu_init_crit:
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm720t):#error No cpu_init_crit() defined for current CPU type
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t):	bl	cpu_init_crit
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t):cpu_init_crit:
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm925t):	bl  cpu_init_crit
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm925t):cpu_init_crit:
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm926ejs):	bl	cpu_init_crit
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm926ejs):cpu_init_crit:
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm946es):	bl	cpu_init_crit
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm946es):cpu_init_crit:
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm_cortexa8):	bl	cpu_init_crit
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm_cortexa8):cpu_init_crit:
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm_intcm):	bl	cpu_init_crit
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm_intcm):cpu_init_crit:
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\lh7a40x):	bl	cpu_init_crit
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\lh7a40x):cpu_init_crit:
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\pxa):	bl	cpu_init_crit		/* we do sys-critical inits	    */
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\pxa):cpu_init_crit:
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\s3c44b0):	bl	cpu_init_crit
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\s3c44b0):cpu_init_crit:
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\sa1100):	bl	cpu_init_crit
+start.S (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\sa1100):cpu_init_crit:
