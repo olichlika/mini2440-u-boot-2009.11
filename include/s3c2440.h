@@ -51,7 +51,7 @@ enum s3c24x0_uarts_nr {
 #define S3C24X0_DMA_BASE		0x4B000000
 #define S3C24X0_CLOCK_POWER_BASE	0x4C000000
 #define S3C24X0_LCD_BASE		0x4D000000
-#define S3C2410_NAND_BASE		0x4E000000
+#define S3C2440_NAND_BASE		0x4E000000
 #define S3C24X0_UART_BASE		0x50000000
 #define S3C24X0_TIMER_BASE		0x51000000
 #define S3C24X0_USB_DEVICE_BASE		0x52000140
@@ -93,9 +93,9 @@ static inline struct s3c24x0_lcd *s3c24x0_get_base_lcd(void)
 {
 	return (struct s3c24x0_lcd *)S3C24X0_LCD_BASE;
 }
-static inline struct s3c2410_nand *s3c2410_get_base_nand(void)
+static inline struct s3c2440_nand *s3c2440_get_base_nand(void)
 {
-	return (struct s3c2410_nand *)S3C2410_NAND_BASE;
+	return (struct s3c2440_nand *)S3C2440_NAND_BASE;
 }
 static inline struct s3c24x0_uart
 	*s3c24x0_get_base_uart(enum s3c24x0_uarts_nr n)

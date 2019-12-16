@@ -30,7 +30,7 @@
 
 #include <common.h>
 #include <netdev.h>
-#include <s3c2410.h>
+#include <s3c2440.h>
 
 #if defined(CONFIG_CMD_NAND)
 #include <linux/mtd/nand.h>
@@ -155,6 +155,7 @@ int dram_init (void)
 	return 0;
 }
 
+#if 0
 #if defined(CONFIG_CMD_NAND)
 extern ulong nand_probe(ulong physadr);
 
@@ -188,7 +189,6 @@ static inline void NF_Init(void)
 
 	NF_Reset();
 }
-
 void nand_init(void)
 {
 	struct s3c2410_nand * const nand = s3c2410_get_base_nand();
@@ -199,7 +199,11 @@ void nand_init(void)
 #endif
 	printf ("%4lu MB\n", nand_probe((ulong)nand) >> 20);
 }
+
 #endif
+
+#endif
+
 
 #ifdef CONFIG_CMD_NET
 int board_eth_init(bd_t *bis)

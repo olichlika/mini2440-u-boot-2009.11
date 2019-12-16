@@ -212,7 +212,7 @@ copyex:
 
 	mov r0, #0 //Nand地址
 	ldr r1, =0x33f80000	//目的地址
-	ldr r2, =(150 * 1024) //复制长度
+	ldr r2, =(200 * 1024) //复制长度
 	bl Nand_Copy_to_SDRAM 
 //relocate:				/* relocate U-Boot to RAM	    */
 //	adr	r0, _start		/* r0 <- current position of code   */

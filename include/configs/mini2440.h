@@ -109,7 +109,7 @@
 #define CONFIG_CMD_DHCP
 #define CONFIG_CMD_ELF
 #define CONFIG_CMD_PING
-
+#define CONFIG_CMD_NAND
 
 #define CONFIG_BOOTDELAY	3
 #define CONFIG_BOOTARGS		"console=ttySAC0 root=/dev/nfs " \
@@ -202,8 +202,12 @@
  * NAND flash settings
  */
 #if defined(CONFIG_CMD_NAND)
-#define CONFIG_NAND_S3C2410
+//#define CONFIG_NAND_S3C2410
+#define CONFIG_NAND_S3C2440
 #define CONFIG_SYS_MAX_NAND_DEVICE	1	/* Max number of NAND devices		*/
+
+#define CONFIG_SYS_NAND_BASE 0x4E000000
+
 #endif	/* CONFIG_CMD_NAND */
 
 #define CONFIG_SETUP_MEMORY_TAGS

@@ -2531,7 +2531,7 @@ static struct nand_flash_dev *nand_get_flash_type(struct mtd_info *mtd,
 	/* Read manufacturer and device IDs */
 	*maf_id = chip->read_byte(mtd);
 	dev_id = chip->read_byte(mtd);
-
+	//printf("dev_id = %d\n\r",dev_id);//这是我后来加上的，目的确认板子上读出的nandflash ID号
 	/* Try again to make sure, as some systems the bus-hold or other
 	 * interface concerns can cause random data which looks like a
 	 * possibly credible NAND flash to appear. If the two results do
@@ -2544,6 +2544,11 @@ static struct nand_flash_dev *nand_get_flash_type(struct mtd_info *mtd,
 
 	tmp_manf = chip->read_byte(mtd);
 	tmp_id = chip->read_byte(mtd);
+	
+	//printf("tmp_manf = %d\n\r", tmp_manf);
+	//printf("*maf_id = %d\n\r", *maf_id);
+	//printf("tmp_id = %d\n\r", tmp_id);
+	//printf("dev_id = %d\n\r", dev_id);
 
 	if (tmp_manf != *maf_id || tmp_id != dev_id) {
 		printk(KERN_INFO "%s: second ID read did not match "

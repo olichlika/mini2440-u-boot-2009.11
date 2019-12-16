@@ -1,23 +1,2 @@
----- s3c24x0_clock_power Matches (22 in 14 files) ----
-Mini2440.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\tekkamanninja\mini2440):	struct s3c24x0_clock_power * const clk_power =
-S3c2400.h (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\include):static inline struct s3c24x0_clock_power *s3c24x0_get_base_clock_power(void)
-S3c2400.h (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\include):	return (struct s3c24x0_clock_power *)S3C24X0_CLOCK_POWER_BASE;
-S3c2410.h (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\include):static inline struct s3c24x0_clock_power *s3c24x0_get_base_clock_power(void)
-S3c2410.h (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\include):	return (struct s3c24x0_clock_power *)S3C24X0_CLOCK_POWER_BASE;
-S3c2410_nand.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\drivers\mtd\nand):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
-S3c2440.h (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\include):static inline struct s3c24x0_clock_power *s3c24x0_get_base_clock_power(void)
-S3c2440.h (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\include):	return (struct s3c24x0_clock_power *)S3C24X0_CLOCK_POWER_BASE;
-S3c24x0.h (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\include):struct s3c24x0_clock_power {
-Sbc2410x.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\sbc2410x):	struct s3c24x0_clock_power * const clk_power =
-Smdk2400.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\samsung\smdk2400):	struct s3c24x0_clock_power * const clk_power =
-Smdk2410.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\samsung\smdk2410):	struct s3c24x0_clock_power * const clk_power =
-Speed.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
-Speed.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
-Speed.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
-Trab.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\trab):	struct s3c24x0_clock_power * const clk_power =
-Usb.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
-Usb.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
-Usb.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
-Usb_ohci.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
-Usb_ohci.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\cpu\arm920t\s3c24x0):	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
-Vcma9.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\board\mpl\vcma9):	struct s3c24x0_clock_power * const clk_power =
+---- No NAND device found Matches (1 in 1 files) ----
+Nand_base.c (w:\ubuntu_armv4\mini2440_uboot\u-boot-2009.11\drivers\mtd\nand):		printk(KERN_WARNING "No NAND device found!!!\n");
