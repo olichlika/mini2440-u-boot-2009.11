@@ -68,10 +68,17 @@
  * Hardware drivers
  */
 #define CONFIG_NET_MULTI
-#define CONFIG_CS8900		/* we have a CS8900 on-board */
-#define CONFIG_CS8900_BASE	0x19000300
-#define CONFIG_CS8900_BUS16	/* the Linux driver does accesses as shorts */
 
+//#define CONFIG_CS8900		/* we have a CS8900 on-board */
+//#define CONFIG_CS8900_BASE	0x19000300
+//#define CONFIG_CS8900_BUS16	/* the Linux driver does accesses as shorts */
+
+#define CONFIG_DRIVER_DM9000 1
+#define CONFIG_DM9000_NO_SROM
+#define CONFIG_DM9000_BASE 0x20000000
+#define DM9000_IO CONFIG_DM9000_BASE
+#define DM9000_DATA (CONFIG_DM9000_BASE + 4)
+#define CONFIG_DM9000_USE_16BIT 1
 /*
  * select serial console configuration
  */
@@ -110,17 +117,20 @@
 #define CONFIG_CMD_ELF
 #define CONFIG_CMD_PING
 #define CONFIG_CMD_NAND
+#define CONFIG_CMD_NET
 
 #define CONFIG_BOOTDELAY	3
 #define CONFIG_BOOTARGS		"console=ttySAC0 root=/dev/nfs " \
 		"nfsroot=192.168.0.1:/friendly-arm/rootfs_netserv " \
 		"ip=192.168.0.69:192.168.0.1:192.168.0.1:255.255.255.0:debian:eth0:off"
-#define CONFIG_ETHADDR	        08:00:3e:26:0a:5b
-#define CONFIG_NETMASK          255.255.255.0
-#define CONFIG_IPADDR		192.168.0.69
-#define CONFIG_SERVERIP		192.168.0.1
+#define CONFIG_ETHADDR	    08:00:3e:26:0a:5b
+#define CONFIG_NETMASK      255.255.255.0
+#define CONFIG_IPADDR		192.168.1.66
+#define CONFIG_SERVERIP		192.168.1.1
+#define CONFIG_GATEWAYIP	192.168.1.1
 /*#define CONFIG_BOOTFILE	"elinos-lart" */
-#define CONFIG_BOOTCOMMAND	"dhcp; bootm"
+//#define CONFIG_BOOTCOMMAND	"dhcp; bootm"
+#define CONFIG_BOOTCOMMAND	"bootm"
 
 #if defined(CONFIG_CMD_KGDB)
 #define CONFIG_KGDB_BAUDRATE	115200		/* speed to run kgdb serial port */

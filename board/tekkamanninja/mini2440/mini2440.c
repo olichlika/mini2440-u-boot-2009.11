@@ -129,7 +129,7 @@ int board_init (void)
 	
 	gpio->GPHCON = 0x0016FAAA;
 	gpio->GPHUP = 0x000007FF;
-	gpio->GPHUP &= ~((1 << 5) | (1 << 4));//иою╜
+	gpio->GPHUP &= ~((1 << 5) | (1 << 4));//О©╫О©╫О©╫О©╫
 
 	gpio->EXTINT0=0x22222222;
 	gpio->EXTINT1=0x22222222;
@@ -205,12 +205,15 @@ void nand_init(void)
 #endif
 
 
-#ifdef CONFIG_CMD_NET
+#ifdef CONFIG_DRIVER_DM9000
 int board_eth_init(bd_t *bis)
 {
 	int rc = 0;
 #ifdef CONFIG_CS8900
 	rc = cs8900_initialize(0, CONFIG_CS8900_BASE);
+#endif
+#ifdef CONFIG_DRIVER_DM9000
+    rc = dm9000_initialize(bis);
 #endif
 	return rc;
 }

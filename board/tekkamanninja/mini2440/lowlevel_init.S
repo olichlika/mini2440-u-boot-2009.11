@@ -52,7 +52,7 @@
 #define B1_BWSCON		(DW16)
 #define B2_BWSCON		(DW16)
 #define B3_BWSCON		(DW16 + WAIT + UBLB)
-#define B4_BWSCON		(DW16)
+#define B4_BWSCON		(DW16 + WAIT + UBLB)
 #define B5_BWSCON		(DW16)
 #define B6_BWSCON		(DW32)
 #define B7_BWSCON		(DW32)
@@ -90,14 +90,14 @@
 #define B3_PMC			0x0
 
 #define B4_Tacs			0x0
-#define B4_Tcos			0x0
+#define B4_Tcos			0x3
 #define B4_Tacc			0x7
-#define B4_Tcoh			0x0
-#define B4_Tah			0x0
-#define B4_Tacp			0x0
+#define B4_Tcoh			0x1
+#define B4_Tah			0x3
+#define B4_Tacp			0x6
 #define B4_PMC			0x0
 
-#define B5_Tacs			0xc
+#define B5_Tacs			0x0
 #define B5_Tcos			0x7
 #define B5_Tacc			0xf
 #define B5_Tcoh			0x1
@@ -116,10 +116,10 @@
 /* REFRESH parameter */
 #define REFEN			0x1	/* Refresh enable */
 #define TREFMD			0x0	/* CBR(CAS before RAS)/Auto refresh */
-#define Trp			0x0	/* 2clk */
+#define Trp			0x2	/* 4clk */
 #define Trc			0x3	/* 7clk */
 #define Tchr			0x2	/* 3clk */
-#define REFCNT			0x0459
+#define REFCNT			1012
 /**************************************/
 
 _TEXT_BASE:

@@ -1,8 +1,8 @@
 /*
  *  armboot - Startup Code for ARM920 CPU-core
  *
- *  Copyright (c) 2001	Marius Gröger <mag@sysgo.de>
- *  Copyright (c) 2002	Alex Züpke <azu@sysgo.de>
+ *  Copyright (c) 2001	Marius Grï¿½ger <mag@sysgo.de>
+ *  Copyright (c) 2002	Alex Zï¿½pke <azu@sysgo.de>
  *  Copyright (c) 2002	Gary Jennejohn <garyj@denx.de>
  *
  * See file CREDITS for list of people who contributed to this
@@ -175,23 +175,23 @@ copyex:
 	mov	r1, #3
 	str	r1, [r0]*/
 	
-	//****ÉèÖÃMPLLÊ±ÖÓ****
-	//ÉèÖÃLOCKTIME
+	//****ï¿½ï¿½ï¿½ï¿½MPLLÊ±ï¿½ï¿½****
+	//ï¿½ï¿½ï¿½ï¿½LOCKTIME
 	ldr r0, =0x4C000000
 	ldr r1, =0xFFFFFFFF
 	str r1, [r0]
 
-	/*ÉèÖÃCLKDIVN*/
+	/*ï¿½ï¿½ï¿½ï¿½CLKDIVN*/
 	ldr r0, =0x4C000014
 	ldr r1, =0x5
 	str r1, [r0]
 
-	/*ÉèÖÃCPUÒì²½Ä£Ê½*/
+	/*ï¿½ï¿½ï¿½ï¿½CPUï¿½ì²½Ä£Ê½*/
 	mrc p15,0,r0,c1,c0,0 
 	orr r0,r0,#0xc0000000 /*R1_nF:OR:R1_iA */
 	mcr p15,0,r0,c1,c0,0
 
-	/*ÉèÖÃMPLLCON*/
+	/*ï¿½ï¿½ï¿½ï¿½MPLLCON*/
 	ldr r0, =0x4C000004
 	ldr r1, =(92 << 12) | (1 << 4) | (1<<0)
 	str r1, [r0]
@@ -210,9 +210,9 @@ copyex:
 #ifndef CONFIG_SKIP_RELOCATE_UBOOT
 	bl Init_Nand
 
-	mov r0, #0 //NandµØÖ·
-	ldr r1, =0x33f80000	//Ä¿µÄµØÖ·
-	ldr r2, =(200 * 1024) //¸´ÖÆ³¤¶È
+	mov r0, #0 //Nandï¿½ï¿½Ö·
+	ldr r1, =0x33f80000	//Ä¿ï¿½Äµï¿½Ö·
+	ldr r2, =(200 * 1024) //ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½
 	bl Nand_Copy_to_SDRAM 
 //relocate:				/* relocate U-Boot to RAM	    */
 //	adr	r0, _start		/* r0 <- current position of code   */
@@ -305,8 +305,9 @@ cpu_init_crit:
 	 */
 	mov	ip, lr
 
-	//bl	lowlevel_init
+	//bl lowlevel_init
 	bl Init_SDRAM
+	bl Init_DM9000
 
 	mov	lr, ip
 	mov	pc, lr
